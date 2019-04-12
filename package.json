@@ -4,7 +4,10 @@
   "private": true,
   "dependencies": {
     "@lingui/react": "^2.7.4",
+    "babel-preset-es2015": "^6.24.1",
     "final-form": "^4.12.0",
+    "lingui-cli": "1.3.1",
+    "lingui-conf": "0.10.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-final-form": "^4.1.0",
@@ -16,9 +19,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "build": "lingui compile && react-scripts build",
     "add-locale": "lingui add-locale",
-      "extract": "lingui extract",
-      "compile": "lingui compile"
+    "extract": "lingui extract",
+    "compile": "lingui compile"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,6 +37,6 @@
     "@babel/core": "^7.4.3",
     "@lingui/cli": "^2.7.4",
     "@lingui/macro": "^2.7.4",
-    "babel-core": "^7.0.0-bridge.0"
+    "babel-core": "^6.0.0"
   }
 }

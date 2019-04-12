@@ -2,15 +2,8 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { Form, Field, FormSpy } from 'react-final-form';
 import styled from 'styled-components';
-import { I18nProvider } from '@lingui/react'
-
-
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
-const showResults = async values => {
-  await sleep(500) // to simulate server delay
-  console.log(JSON.stringify(values, undefined, 2))
-  window.alert(JSON.stringify(values, undefined, 2))
-}
+import { I18nProvider } from '@lingui/react';
+import { Trans } from '@lingui/macro';
 
 
 
@@ -25,12 +18,22 @@ const StyledSpan = styled.p`color: red; font-size: 0.7em;`;
 const StyledSpan1 = styled.span` color:red; font-size: 0.8em;`;
 const Stylediv = styled.div` padding: 0.3em;`;
 const StyledDiv = styled.div`length: 100%;`;
-const required = value => (value ? undefined : 'Required')
+const required = value => (value ? undefined : 'Required');
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+const showResults = async values => {
+  await sleep(500) // to simulate server delay
+  console.log(JSON.stringify(values, undefined, 2))
+  window.alert(JSON.stringify(values, undefined, 2))
+}
+
+
 
 const App = () => (
+  
   <div>
+  <I18nProvider language="en">
   <Wrapper>
-  <Title> CONGRATULATIONS! </Title>
+  <Title><Trans> CONGRATULATIONS! </Trans></Title>
    <StyledP>
           You have asnwered the question correctly. Please fill in your <br/>
           mailing address and phone number so we ship you your prize 
@@ -208,8 +211,9 @@ const App = () => (
      
          </Form>
          </Wrapper>
-
+ </I18nProvider>
          </div>
+        
          )
 
 
